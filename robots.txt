@@ -1,0 +1,7 @@
+# Document BEI-009 is public. Crawlers are welcome; they are faster than
+# our carriers and considerably more likely to arrive.
+
+User-agent: *
+Allow: /
+
+# There is no sitemap. There is one page and a 404, and the 404 finds you.

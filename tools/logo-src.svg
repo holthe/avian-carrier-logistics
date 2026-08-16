@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360" role="img" aria-label="Avian Carrier Logistics">
+  <title>Avian Carrier Logistics</title>
+  <!-- Wordmark source. `make logo` outlines the text into assets/logo.svg.
+       On Linux the Helvetica/Arial stack resolves through fontconfig to
+       Liberation Sans, which is metric-compatible with what the site shows.
+       The wing mark is the navbar mark from index.html, verbatim, scaled. -->
+  <rect width="1200" height="360" fill="#0f2a4a"/>
+  <g transform="translate(30,20) scale(8)">
+    <polygon points="4,32 15,32 23,24 12,24" fill="#f26522"/>
+    <polygon points="11,21 21,21 28,14 18,14" fill="#f26522" opacity="0.85"/>
+    <polygon points="18,11 26,11 32,5 24,5" fill="#f26522" opacity="0.7"/>
+  </g>
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" font-size="120">
+    <text x="330" y="160" textLength="800" lengthAdjust="spacing" xml:space="preserve"><tspan fill="#ffffff">AVIAN </tspan><tspan fill="#f26522">CARRIER</tspan></text>
+    <text x="330" y="310" textLength="800" lengthAdjust="spacing" fill="#ffffff">LOGISTICS</text>
+  </g>
+</svg>

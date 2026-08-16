@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avian Carrier Logistics | We deliver your packets. Statistically.</title>
+<meta name="description" content="We deliver your packets. Statistically. Datagram carriage over avian carriers per RFC 1149, RFC 2549, and RFC 6214.">
+<meta name="robots" content="index, follow">
+
+<!-- PRODUCTION DOMAIN, hardcoded. aviancarrierlogistics.com is a placeholder;
+     candidate domains (aviancarrier.com, ipoverbird.com) are not purchased.
+     If the site moves, change the four absolute URLs below and the footer of
+     tools/og.html, then re-run `make og`. Those are the only two files that
+     name the domain; nothing derives it. -->
+<link rel="canonical" href="https://aviancarrierlogistics.com/">
+<meta name="theme-color" content="#0f2a4a">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Avian Carrier Logistics">
+<meta property="og:url" content="https://aviancarrierlogistics.com/">
+<meta property="og:title" content="Avian Carrier Logistics">
+<meta property="og:description" content="We deliver your packets. Statistically. Datagram carriage over avian carriers per RFC 1149, RFC 2549, and RFC 6214.">
+<meta property="og:image" content="https://aviancarrierlogistics.com/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Avian Carrier Logistics: we deliver your packets. Statistically. Datagram carriage over avian carriers.">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Avian Carrier Logistics">
+<meta name="twitter:description" content="We deliver your packets. Statistically. Datagram carriage over avian carriers per RFC 1149, RFC 2549, and RFC 6214.">
+<meta name="twitter:image" content="https://aviancarrierlogistics.com/og.png">
+<meta name="twitter:image:alt" content="Avian Carrier Logistics: we deliver your packets. Statistically. Datagram carriage over avian carriers.">
+<style>
+  :root{
+    --navy:#0f2a4a; --navy-deep:#0a1f38; --orange:#f26522; --sky:#eef3f8;
+    --ink:#1d2733; --muted:#5f6b7a; --line:#d7dee7; --green:#2e8b46; --red:#c0392b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+  .wrap{max-width:940px;margin:0 auto;padding:0 20px}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+  a{color:var(--navy)}
+  button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+
+  nav{background:var(--navy);color:#fff;padding:16px 0}
+  nav .wrap{display:flex;align-items:center;gap:12px}
+  .mark{width:38px;height:38px;flex:none}
+  nav b{font-size:19px;letter-spacing:.02em}
+  nav b span{color:var(--orange)}
+  nav small{margin-left:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8fa5bf}
+
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;padding:52px 0 56px}
+  .hero h1{font-size:clamp(28px,5.6vw,46px);font-weight:800;max-width:640px;line-height:1.1}
+  .hero h1 em{color:var(--orange);font-style:normal}
+  .hero p{margin-top:12px;color:#b9c8da;max-width:560px}
+  .trackbox{margin-top:28px;background:#fff;padding:10px;display:flex;gap:10px;max-width:620px;flex-wrap:wrap;border-radius:4px}
+  .trackbox input{flex:1;min-width:200px;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line)}
+  .trackbox button{font:inherit;font-weight:800;letter-spacing:.04em;background:var(--orange);color:#fff;border:0;padding:12px 26px;cursor:pointer}
+  .trackbox button:hover{background:#ff7a35}
+  .hero .hint{font-size:12px;color:#8fa5bf;margin-top:10px}
+
+  .result{display:none;border-bottom:1px solid var(--line)}
+  .result.show{display:block}
+  .rhead{background:var(--sky);border-bottom:1px solid var(--line);padding:26px 0}
+  .rhead .num{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .rhead h2{font-size:24px;margin-top:4px}
+  .rhead h2.ok{color:var(--green)}
+  .rhead h2.bad{color:var(--red)}
+  .rhead .eta{font-size:14px;color:var(--muted);margin-top:4px}
+  .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:18px}
+  .meta div{background:#fff;padding:12px 14px}
+  .meta b{display:block;font-size:15px}
+  .meta span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  .events{padding:30px 0 44px}
+  .events h3{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .ev{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .ev:last-child{border-bottom:0}
+  .ev .dot{width:10px;height:10px;border-radius:50%;background:var(--line);margin-top:6px;flex:none}
+  .ev.first .dot{background:var(--orange)}
+  .ev .when{width:170px;flex:none;font-size:12.5px;color:var(--muted)}
+  .ev .what b{display:block;font-size:14.5px}
+  .ev .what span{font-size:12.5px;color:var(--muted)}
+
+  section{padding:46px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:800}
+  section h2{font-size:26px;font-weight:800;margin:6px 0 10px}
+  section p.intro{color:var(--muted);max-width:620px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:22px}
+  .card{border:1px solid var(--line);padding:22px}
+  .card h3{font-size:17px}
+  .card .rfc{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);font-weight:800;margin:4px 0 10px}
+  .card p{font-size:14px;color:var(--muted)}
+  .card ul{margin-top:10px;font-size:13px;color:var(--muted);list-style:none}
+  .card li{padding:3px 0;border-bottom:1px dotted var(--line)}
+  .card li:last-child{border:0}
+
+  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-top:22px}
+  .numbers div{border-left:4px solid var(--orange);padding:4px 0 4px 14px}
+  .numbers b{display:block;font-size:26px;font-variant-numeric:tabular-nums}
+  .numbers span{font-size:12px;color:var(--muted)}
+
+  footer{padding:32px 0 48px;font-size:12px;color:var(--muted);background:var(--sky)}
+  footer .doc{letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+  footer p{margin-top:8px;max-width:720px}
+  @media(max-width:560px){ .ev .when{width:118px} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 40 40" aria-hidden="true">
+      <polygon points="4,32 15,32 23,24 12,24" fill="#f26522"/>
+      <polygon points="11,21 21,21 28,14 18,14" fill="#f26522" opacity="0.85"/>
+      <polygon points="18,11 26,11 32,5 24,5" fill="#f26522" opacity="0.7"/>
+    </svg>
+    <b>AVIAN <span>CARRIER</span> LOGISTICS</b>
+    <small>A Best Effort Industries company</small>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>We deliver your packets. <em>Statistically.</em></h1>
+    <p>Global datagram carriage over biological transport, fully conformant with RFC 1149. Field-proven since 2001 with an industry-defining packet delivery rate of 44.5%.</p>
+    <div class="trackbox">
+      <label for="tn" style="position:absolute;left:-9999px">Tracking number</label>
+      <input id="tn" placeholder="Enter tracking number (any format accepted, all formats invented)" maxlength="40">
+      <button id="trackBtn">Track packet</button>
+    </div>
+    <div class="hint">No tracking number? Enter anything. The carrier does not read them either.</div>
+  </div>
+</div>
+
+<div class="result" id="result">
+  <div class="rhead">
+    <div class="wrap">
+      <div class="num mono" id="rNum"></div>
+      <h2 id="rStatus"></h2>
+      <div class="eta" id="rEta"></div>
+      <div class="meta">
+        <div><b>1 × 3.5in card</b><span>Payload format</span></div>
+        <div><b id="rMtu">256 bytes</b><span>MTU (ink-limited)</span></div>
+        <div><b id="rCarrier"></b><span>Assigned carrier</span></div>
+        <div><b>Dawn to dusk</b><span>Duty cycle</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="events">
+    <div class="wrap">
+      <h3>Scan history (scans performed by eye)</h3>
+      <div id="rEvents"></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Service portfolio</div>
+    <h2>Choose your class of carriage</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Standard Datagram</h3>
+        <div class="rfc">Per RFC 1149</div>
+        <p>IP datagrams printed on paper, affixed to the carrier's leg, and released in the general direction of the destination.</p>
+        <ul>
+          <li>Best-effort delivery (see company name)</li>
+          <li>Automatic retransmission: no</li>
+          <li>Automatic return to sender: frequent, unrequested</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Priority QoS</h3>
+        <div class="rfc">Per RFC 2549</div>
+        <p>Quality of Service for demanding workloads. Priority packets travel by a carrier that has been fed slightly better.</p>
+        <ul>
+          <li>Service classes: Concorde, First, Business, Coach</li>
+          <li>Bulk carriage available (ostrich, one packet, large font)</li>
+          <li>SLA: emotional</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>IPv6 Carriage</h3>
+        <div class="rfc">Per RFC 6214</div>
+        <p>Full 128-bit addressing support. Requires a larger card, a stronger carrier, and a customer who has genuinely deployed IPv6.</p>
+        <ul>
+          <li>Demand to date: 1 inquiry (withdrawn)</li>
+          <li>Jumbograms: quoted on request, declined on receipt</li>
+          <li>Dual-stack: two birds, string between them</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Network performance</div>
+    <h2>Our numbers, audited in the field</h2>
+    <p class="intro">Figures from the Bergen field implementation, April 2001. Nine packets sent, four delivered. These are real results from a real deployment, and we have not attempted to improve on them since.</p>
+    <div class="numbers">
+      <div><b>44.5%</b><span>Packet delivery rate (industry-leading among birds)</span></div>
+      <div><b>55.5%</b><span>Packet loss (reframed above)</span></div>
+      <div><b>~1.5 h</b><span>Median round-trip time, unladen</span></div>
+      <div><b>0</b><span>Firmware updates required, ever</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="doc">DOC: BEI-009 · REV 1.0 / FINAL / RELEASED AT DAWN</div>
+    <p>Avian Carrier Logistics is a division of <a href="https://besteffortindustries.com">Best Effort Industries</a>, operating under RFC 1149 (Standard for the transmission of IP datagrams on avian carriers), RFC 2549 (QoS extensions), and RFC 6214 (IPv6 adaptation). These documents are real and may be consulted. The company is not, and may not.</p>
+    <p>Carriage is subject to weather, hawks, bread, magnetic anomalies, and the carrier's personal judgment, which is final. Multipath routing occurs when the flock scatters. Packets are non-refundable once released, as we cannot get them back either.</p>
+    <p>© 2026 AVIAN CARRIER LOGISTICS · COO, COO</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function seedFrom(str){
+    var h = 2166136261;
+    for(var i=0;i<str.length;i++){ h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
+  function rng(seed){
+    return function(){
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function pick(r, arr){ return arr[Math.floor(r()*arr.length)]; }
+
+  var CARRIERS = ['Unit 7 "Steady"','Unit 12 "Mostly"','Unit 3 "The Veteran"','Unit 19 (probationary)','Unit 4 "Beaker"','Unit 22 (new, keen, lost)'];
+  var PLACES = ['Origin coop','Rooftop relay, Sector 2','Municipal fountain (unscheduled)','Regional loft, Bergen','Grain elevator interchange','Statue (routing decision pending)','Overhead wire, holding pattern','Coastal shortcut (advisory ignored)','Destination approach, circling'];
+  var MID = [
+    ['Payload printed and affixed','Duct tape, single wrap, per RFC 1149 section 4.'],
+    ['Carrier released','Initial heading acceptable. Optimism recorded.'],
+    ['Route discovery in progress','Carrier observed circling origin. This is normal. This continued.'],
+    ['In transit','Altitude: best effort. Airspeed: carrier declined to say.'],
+    ['Weather hold','Hawk reported on route. All traffic grounded by mutual agreement.'],
+    ['Congestion event','Bread encountered. Queue formed. Head-of-line blocking, literally.'],
+    ['Arrived intermediate loft','Payload inspected by unauthorized third parties (other birds).'],
+    ['Multipath detected','Carrier joined a flock. Packet now traveling by committee.'],
+    ['Checkpoint scan','Scan performed by eye. Carrier looked fine. Carried on.'],
+    ['Out for delivery','Circling destination. Descent expected pending confidence.']
+  ];
+  var GOOD = [
+    ['Delivered','Payload intact, corner slightly pecked. Checksum passed on second reading.'],
+    ['Delivered','Recipient present. Carrier accepted payment in seed. Do not pay carriers in seed.'],
+    ['Delivered','Datagram transcribed to destination host by hand, per specification. OCR errors: acceptable.']
+  ];
+  var BAD = [
+    ['Delivery attempted','Recipient behind NAT. Carrier could not translate. Packet returned to hold.'],
+    ['Packet dropped','Literally. Recovery team dispatched, distracted, recalled.'],
+    ['TTL exceeded','Carrier retired mid-route to raise a family. Packet now part of a nest, load-bearing.'],
+    ['Delivery deferred','Destination window closed. Carrier is waiting on the sill. Carrier can wait a long time.'],
+    ['Duplicate detected','Carrier delivered to previous customer out of habit. Original recipient asked to introduce themselves.']
+  ];
+
+  var result = document.getElementById('result');
+
+  function track(){
+    var raw = document.getElementById('tn').value.trim() || 'ACL-UNNUMBERED';
+    var seed = seedFrom(raw.toUpperCase());
+    var r = rng(seed);
+
+    var canonical = 'ACL-' + String(seed % 10000).padStart(4,'0') + '-' + String((seed >>> 12) % 10000).padStart(4,'0');
+    document.getElementById('rNum').textContent = 'Tracking ' + canonical + ' · submitted as "' + raw + '" · normalized without consent';
+    document.getElementById('rCarrier').textContent = pick(r, CARRIERS);
+    document.getElementById('rMtu').textContent = (r() < 0.15) ? '256 bytes (large print)' : '256 bytes';
+
+    var n = 4 + Math.floor(r()*4);
+    var used = [];
+    var events = [];
+    for(var i=0;i<n;i++){
+      var ev;
+      var guard = 0;
+      do { ev = pick(r, MID); guard++; } while(used.indexOf(ev[0])>-1 && guard<10);
+      used.push(ev[0]);
+      events.push(ev);
+    }
+    var delivered = r() < 0.445;
+    var terminal = delivered ? pick(r, GOOD) : pick(r, BAD);
+
+    var now = Date.now();
+    var span = (2 + r()*5) * 86400000;
+    var times = [];
+    for(var j=0;j<=n;j++){ times.push(now - span + span * (j/n) * (0.7 + r()*0.3)); }
+    times.sort(function(a,b){return a-b});
+
+    var head = document.getElementById('rStatus');
+    head.textContent = terminal[0];
+    head.className = delivered ? 'ok' : 'bad';
+    document.getElementById('rEta').textContent = delivered
+      ? 'Delivery confirmed. Confirmation is verbal and the carrier has left.'
+      : 'Revised estimated delivery: best effort. Previous estimate: also that.';
+
+    var opts = {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'};
+    var html = '';
+    var all = events.map(function(e,i){ return {t:times[i], e:e}; });
+    all.push({t:times[n], e:terminal});
+    all.reverse().forEach(function(row, idx){
+      var d = new Date(row.t);
+      html += '<div class="ev' + (idx===0?' first':'') + '">'
+        + '<div class="dot"></div>'
+        + '<div class="when">' + d.toLocaleDateString('en-US',opts) + '<br>' + pick(rng(seedFrom(row.e[0])), PLACES) + '</div>'
+        + '<div class="what"><b>' + row.e[0] + '</b><span>' + row.e[1] + '</span></div>'
+        + '</div>';
+    });
+    document.getElementById('rEvents').innerHTML = html;
+    result.classList.add('show');
+    result.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+
+  document.getElementById('trackBtn').addEventListener('click', track);
+  document.getElementById('tn').addEventListener('keydown', function(e){ if(e.key==='Enter') track(); });
+})();
+</script>
+</body>
+</html>
