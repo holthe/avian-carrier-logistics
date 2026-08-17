@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">
   <title>Avian Carrier Logistics, 16px</title>
   <!-- Pixel-grid reduction of favicon.svg for the smallest .ico entry.
-       Three ascending steps stand in for the angled wing bars; diagonals
-       do not survive 16px. -->
+       The same three ascending wing bars as the navbar mark, slanted at
+       exactly 45 degrees so the diagonals land on pixel corners and stay
+       crisp instead of antialiasing to mud. -->
   <rect width="16" height="16" fill="#0f2a4a"/>
   <g fill="#f26522">
-    <rect x="1" y="11" width="7" height="3"/>
-    <rect x="5" y="7" width="7" height="3" opacity="0.85"/>
-    <rect x="9" y="3" width="6" height="3" opacity="0.7"/>
+    <polygon points="1,14 6,14 9,11 4,11"/>
+    <polygon points="4,10 9,10 12,7 7,7" opacity="0.85"/>
+    <polygon points="7,6 12,6 15,3 10,3" opacity="0.7"/>
   </g>
 </svg>
