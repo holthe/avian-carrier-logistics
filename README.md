@@ -63,10 +63,12 @@ Helvetica/Arial stack, so there are no webfonts to host or wait for.
 
 ### The production domain
 
-`aviancarrierlogistics.com` is a placeholder until a domain is actually
-registered; the candidates under consideration are `aviancarrier.com` and
-`ipoverbird.com`, neither purchased. The placeholder is hardcoded,
-deliberately, in three places, and nothing derives it from anything else:
+The site is served at `aviancarrierlogistics.pages.dev`, and that is the host every absolute
+URL on the page points at, so link previews resolve. `aviancarrierlogistics.com` remains
+the candidate domain and has not been purchased; if the site is
+promoted, either to that domain or to a subdomain of the parent
+(`avian.besteffortindustries.com`), the canonical host changes in the
+places below and nothing else derives it:
 
 | File | What to change |
 | --- | --- |
