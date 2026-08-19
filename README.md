@@ -63,7 +63,7 @@ Helvetica/Arial stack, so there are no webfonts to host or wait for.
 
 ### The production domain
 
-The site is served at `aviancarrierlogistics.pages.dev`, and that is the host every absolute
+The site is served at `avian.besteffortindustries.com`, and that is the host every absolute
 URL on the page points at, so link previews resolve. `aviancarrierlogistics.com` remains
 the candidate domain and has not been purchased; if the site is
 promoted, either to that domain or to a subdomain of the parent
