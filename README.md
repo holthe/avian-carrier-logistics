@@ -164,7 +164,7 @@ worse.
 
 ### Related
 
-The site's footer files it as DOC: BEI-009, a division of
+The site's footer files it as DOC: BEI-ACL, a division of
 [Best Effort Industries](https://besteffortindustries.com). The division
 table in that repository does not list it yet; taking it live there is the
 four-step edit documented above that table.
