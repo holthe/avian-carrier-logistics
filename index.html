@@ -129,7 +129,7 @@
 <div class="hero">
   <div class="wrap">
     <h1>We deliver your packets. <em>Statistically.</em></h1>
-    <p>Global datagram carriage over biological transport, fully conformant with RFC 1149. Field-proven since 2001 with an industry-defining packet delivery rate of 44.5%.</p>
+    <p>Global datagram carriage over biological transport, fully conformant with RFC 1149. Field-proven since 2001 with an industry-defining packet delivery rate of 44.4%.</p>
     <div class="trackbox">
       <label for="tn" style="position:absolute;left:-9999px">Tracking number</label>
       <input id="tn" placeholder="Enter tracking number (any format accepted, all formats invented)" maxlength="40">
@@ -139,15 +139,15 @@
   </div>
 </div>
 
-<div class="result" id="result">
+<div class="result" id="result" role="status" aria-live="polite">
   <div class="rhead">
     <div class="wrap">
       <div class="num mono" id="rNum"></div>
       <h2 id="rStatus"></h2>
       <div class="eta" id="rEta"></div>
       <div class="meta">
-        <div><b>1 × 3.5in card</b><span>Payload format</span></div>
-        <div><b id="rMtu">256 bytes</b><span>MTU (ink-limited)</span></div>
+        <div><b>1 × paper scroll</b><span>Payload format</span></div>
+        <div><b id="rMtu">256 milligrams</b><span>MTU (mass, per RFC 1149)</span></div>
         <div><b id="rCarrier"></b><span>Assigned carrier</span></div>
         <div><b>Dawn to dusk</b><span>Duty cycle</span></div>
       </div>
@@ -172,7 +172,7 @@
         <p>IP datagrams printed on paper, affixed to the carrier's leg, and released in the general direction of the destination.</p>
         <ul>
           <li>Best-effort delivery (see company name)</li>
-          <li>Automatic retransmission: no</li>
+          <li>Persistent delivery retry: until the carrier drops</li>
           <li>Automatic return to sender: frequent, unrequested</li>
         </ul>
       </div>
@@ -189,7 +189,7 @@
       <div class="card">
         <h3>IPv6 Carriage</h3>
         <div class="rfc">Per RFC 6214</div>
-        <p>Full 128-bit addressing support. Requires a larger card, a stronger carrier, and a customer who has genuinely deployed IPv6.</p>
+        <p>Full 128-bit addressing support. Requires a longer scroll, a stronger carrier, and a customer who has genuinely deployed IPv6.</p>
         <ul>
           <li>Demand to date: 1 inquiry (withdrawn)</li>
           <li>Jumbograms: quoted on request, declined on receipt</li>
@@ -206,8 +206,8 @@
     <h2>Our numbers, audited in the field</h2>
     <p class="intro">Figures from the Bergen field implementation, April 2001. Nine packets sent, four delivered. These are real results from a real deployment, and we have not attempted to improve on them since.</p>
     <div class="numbers">
-      <div><b>44.5%</b><span>Packet delivery rate (industry-leading among birds)</span></div>
-      <div><b>55.5%</b><span>Packet loss (reframed above)</span></div>
+      <div><b>44.4%</b><span>Packet delivery rate (industry-leading among birds)</span></div>
+      <div><b>55.6%</b><span>Packet loss (reframed above)</span></div>
       <div><b>~1.5 h</b><span>Median round-trip time, unladen</span></div>
       <div><b>0</b><span>Firmware updates required, ever</span></div>
     </div>
@@ -277,7 +277,7 @@
     var canonical = 'ACL-' + String(seed % 10000).padStart(4,'0') + '-' + String((seed >>> 12) % 10000).padStart(4,'0');
     document.getElementById('rNum').textContent = 'Tracking ' + canonical + ' · submitted as "' + raw + '" · normalized without consent';
     document.getElementById('rCarrier').textContent = pick(r, CARRIERS);
-    document.getElementById('rMtu').textContent = (r() < 0.15) ? '256 bytes (large print)' : '256 bytes';
+    document.getElementById('rMtu').textContent = (r() < 0.15) ? '256 milligrams (damp)' : '256 milligrams';
 
     var n = 4 + Math.floor(r()*4);
     var used = [];
